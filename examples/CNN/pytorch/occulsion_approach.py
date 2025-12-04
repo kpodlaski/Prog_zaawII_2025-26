@@ -42,7 +42,7 @@ test_loader = torch.utils.data.DataLoader(
                                torchvision.transforms.Normalize(
                                  (0.1307,), (0.3081,))
                              ])),
-    batch_size=batch_size_test, shuffle=True, **data_loader_kwargs)
+    batch_size=batch_size_test, shuffle=False, **data_loader_kwargs)
 
 
 network = ConvNet()
@@ -52,7 +52,7 @@ ml = ML_Wrapper.load_model (base_path, "conv_network_model.pth", network, optimi
 
 examples = enumerate(test_loader)
 batch_idx, (example_data, example_targets) = next(examples)
-patch_half_size = 4
+patch_half_size = 3
 patch_tensor = torch.zeros(2*patch_half_size+1,2*patch_half_size+1)
 image_shape = example_data.shape
 patch_shape = patch_tensor.shape
@@ -84,6 +84,6 @@ f, (ax1, ax2) = plt.subplots(1,2)
 im2 =ax2.imshow(occlusion_image, cmap='gnuplot', interpolation='none')
 ax1.imshow(example_data[0][0], cmap='grey', interpolation='none')
 add_colorbar(im2)
-plt.savefig(base_path+"/out/occlusion.png")
+plt.savefig(base_path+"/out/occlusion_patch_size_{0}.png".format(2*patch_half_size+1))
 
 
