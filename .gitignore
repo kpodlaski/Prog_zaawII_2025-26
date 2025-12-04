@@ -12,7 +12,7 @@ __pycache__/
 __pycache__/*
 images/*
 out/*
-
+data/*
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
