@@ -35,7 +35,7 @@ network = DenseTimeSeries(window_size=window_size)
 optimizer = optim.SGD(network.parameters(), lr=learning_rate, momentum=momentum)
 ml = ML_Wrapper(network, optimizer, base_path, device = device )
 ml.loss_function = nn.MSELoss()
-
+ml.summary((1,1,4))
 for epoch in range(1, n_epochs + 1):
     ml.train(epoch, train_dataloader, val_loader=test_dataloader)
 
