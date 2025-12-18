@@ -6,7 +6,7 @@ class RNNNet(nn.Module):
         if type == 'LSTM':
             self.rnn = nn.LSTM(input_size=window_size, hidden_size=50, num_layers=1, batch_first=True)
         if type == 'GRU':
-            self.rnn = nn.GRU(window_size=4, hidden_size=50, num_layers=1, batch_first=True)
+            self.rnn = nn.GRU(window_size=window_size, hidden_size=50, num_layers=1, batch_first=True)
         self.output = nn.Linear(50,1)
 
     def forward(self, x):

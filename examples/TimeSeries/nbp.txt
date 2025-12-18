@@ -1,0 +1,3 @@
+link do api z danymi NBP, dla Euro
+
+url_pattern = 'https://api.nbp.pl/api/exchangerates/rates/a/eur/{year}-01-01/{year}-12-31/?format=json'
